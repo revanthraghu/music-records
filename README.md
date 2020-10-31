@@ -8,6 +8,16 @@ This is a full-stack project created using React, Node.js, Express, MongoDB and 
 4. The website is responsive and is useable in all screen sizes.
 5. MongoDB is used to maintain one database with two collections, one for user details and another for album details.
 
+## Homepage
+
+![homepage](/screenshots/homepage.png)
+
+## Artist Profile
+![artist profile](/screenshots/artistprofile.png)
+## New Album Modal
+![new album modal](/screenshots/albummodal.png)
+## Album Information Page
+![Album Information Page](/screenshots/albuminfo.png)
 ## Setup
 
 1. Clone the repository.
