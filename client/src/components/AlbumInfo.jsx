@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         backgroundColor: 'transparent',
+        height: 'auto',
+        marginBottom: '40px',
         [theme.breakpoints.down('xs')]: {
             width: '320px'
         },
@@ -39,7 +41,8 @@ function AlbumnInfo() {
             style={{
                 padding: '50px',
                 backgroundColor: '#030303',
-                height: '100vh',
+                minHeight: '100vh',
+                height: 'max-content',
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection: 'column'
