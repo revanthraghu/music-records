@@ -93,7 +93,7 @@ function AccountInfo() {
     function handleProfileSubmit(e) {
         e.preventDefault();
         if (newName !== name) {
-            dispatch(updateProfile(authToken, { newName }));
+            dispatch(updateProfile(authToken, { newName, email }));
         }
     }
 

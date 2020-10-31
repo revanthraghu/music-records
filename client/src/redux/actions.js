@@ -78,7 +78,7 @@ export const getUserAlbums = (authToken, email) => {
     return (dispatch) => {
         return axios({
             method: 'GET',
-            url: `http://localhost:5000/api/albums?email=${email}`,
+            url: `http://localhost:5000/api/user/albums?email=${email}`,
             headers: { Authorization: `Bearer ${authToken}` }
         })
             .then((res) => dispatch(getUserAlbumsSuccess(res.data)))

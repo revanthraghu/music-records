@@ -14,3 +14,39 @@ Content-Type: application/json
     "email": "gr@gmail.com",
     "password": "123456"
 }
+###
+POST http://localhost:5000/api/addalbum
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyQGdtYWlsLmNvbSIsImlhdCI6MTYwNDEyOTk5NX0.kaXXROT6zmP3HeGosnfJ2imh6Pp82xEsE_-hXXz9KzQ
+Content-Type: application/json
+
+{
+    "name": "Appetite for Destruction",
+    "year": "1987",
+    "genre": "Hard Rock",
+    "artist": "Guns N' Roses",
+    "email": "gr@gmail.com"
+}
+###
+GET http://localhost:5000/api/albums
+###
+GET http://localhost:5000/api/user/albums?email=gr@gmail.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyQGdtYWlsLmNvbSIsImlhdCI6MTYwNDEyOTk5NX0.kaXXROT6zmP3HeGosnfJ2imh6Pp82xEsE_-hXXz9KzQ
+###
+DELETE http://localhost:5000/api/deletealbum
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyQGdtYWlsLmNvbSIsImlhdCI6MTYwNDEyOTk5NX0.kaXXROT6zmP3HeGosnfJ2imh6Pp82xEsE_-hXXz9KzQ
+Content-Type: application/json
+
+{
+    "name": "Appetite for Destruction",
+    "email": "gr@gmail.com"
+}
+###
+PUT http://localhost:5000/api/updateprofile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyQGdtYWlsLmNvbSIsImlhdCI6MTYwNDEyOTk5NX0.kaXXROT6zmP3HeGosnfJ2imh6Pp82xEsE_-hXXz9KzQ
+Content-Type: application/json
+
+{
+    "newName": "Guns N' Roses",
+    "email": "gr@gmail.com"
+}
+###

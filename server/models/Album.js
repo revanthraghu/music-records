@@ -6,7 +6,8 @@ const albumSchema = new Schema({
     year: { type: String, required: true, default: 'Unknown' },
     genre: { type: String, required: true, default: 'Unknown' },
     artist: { type: String, required: true, default: 'Unkown' },
-    songsCount: { type: Number, required: true, default: 0 },
+    email: { type: String, required: true },
+    songs: { type: Array, required: true, default: [] },
     albumArt: {
         type: String,
         required: true,
@@ -14,4 +15,4 @@ const albumSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('albumns', albumSchema);
+module.exports = mongoose.model('albums', albumSchema);

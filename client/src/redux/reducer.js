@@ -15,8 +15,10 @@ const initialState = {
     albums: [],
     userAlbums: [],
     error: '',
-    current_page: 1,
-    total_count: 1,
+    user_current_page: 1,
+    user_total_count: 1,
+    main_current_page: 1,
+    main_total_count: 1,
     name: JSON.parse(localStorage.getItem('name')) || '',
     email: JSON.parse(localStorage.getItem('email')) || '',
     avatar: JSON.parse(localStorage.getItem('avatar')) || '',
@@ -63,7 +65,13 @@ function reducer(state = initialState, { type, payload }) {
             };
         }
         case GET_USER_ALBUMS_SUCCESS: {
-            return { ...state, error: '', userAlbums: payload };
+            return {
+                ...state,
+                error: '',
+                userAlbums: payload.albums,
+                user_current_page: payload.page,
+                user_total_count: payload.count
+            };
         }
         case GET_USER_ALBUMS_FAILURE: {
             return { ...state, error: payload };

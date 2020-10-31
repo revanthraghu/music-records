@@ -30,7 +30,7 @@ const registerController = async (req, res) => {
         const savedArtist = await artist.save();
         res.send(savedArtist);
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).send(err.message);
     }
 };
 
@@ -52,7 +52,8 @@ const loginController = async (req, res) => {
         if (!validPass) return res.status(400).send('Wrong password');
         const authToken = jwt.sign(
             { email: artist.email },
-            process.env.JWT_SECRET
+            process.env.JWT_SECRET,
+            {}
         );
         res.json({ ...artist['_doc'], authToken });
     } catch (err) {
