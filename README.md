@@ -7,7 +7,7 @@
 3. Use terminal and navigate to client and server folders of the app and run
    `npm install` in both folders.
 4. In one terminal navigate to the server folder and run `node app.js` and wait
-   till terminal outputs a message `connected to database`.
+   till terminal outputs the message: _connected to database_.
 5. Open another terminal and navigate to the client folder and run `npm start`
    and wait for the browser to load the application.
 6. Explore the app.
