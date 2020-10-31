@@ -6,6 +6,7 @@ import Login from '../components/Login';
 import Register from '../components/Register';
 import { useSelector } from 'react-redux';
 import AccountInfo from '../components/AccountInfo';
+import AlbumnInfo from '../components/AlbumInfo';
 
 function Routes() {
     const { authToken, isRegistered } = useSelector((state) => state);
@@ -34,9 +35,10 @@ function Routes() {
                 exact
                 path="/account"
                 render={() =>
-                    authToken ? <AccountInfo /> : <Redirect to="/login" />
+                    authToken ? <AccountInfo /> : <Redirect to="/" />
                 }
             />
+            <Route path="/album/:id" render={() => <AlbumnInfo />} />
         </Switch>
     );
 }

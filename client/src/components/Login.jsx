@@ -70,8 +70,8 @@ function Login() {
     const error = useSelector((state) => state.error);
 
     const [open, setOpen] = useState(false);
-    const [email, setEmail] = useState('gr@gmail.com');
-    const [password, setPassword] = useState('123456');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();

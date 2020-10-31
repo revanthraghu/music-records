@@ -114,12 +114,21 @@ function Navbar() {
         <div className={classes.root}>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                    <Avatar className={classes.avatar}>
-                        <MusicNoteIcon className={classes.appIcon} />
-                    </Avatar>
-                    <Typography variant="h6" className={classes.title}>
-                        Shuttle+
-                    </Typography>
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            cursor: 'pointer'
+                        }}
+                        onClick={(e) => history.push('/')}
+                    >
+                        <Avatar className={classes.avatar}>
+                            <MusicNoteIcon className={classes.appIcon} />
+                        </Avatar>
+                        <Typography variant="h6" className={classes.title}>
+                            Shuttle+
+                        </Typography>
+                    </div>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />

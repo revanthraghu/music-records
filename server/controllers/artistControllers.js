@@ -76,7 +76,7 @@ const updateProfileController = async (req, res) => {
     try {
         const ans = await Artist.updateOne({ email }, { name: newName });
         if (ans.nModified > 0) {
-            const artist = await Artist.find({ email });
+            const artist = await Artist.findOne({ email });
             res.json(artist);
         } else {
             res.status(400).send('Artist not found');

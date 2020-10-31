@@ -4,10 +4,16 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
     POST_LOGOUT,
+    ADD_ALBUM_SUCCESS,
+    ADD_ALBUM_FAILURE,
+    GET_ALBUMS_SUCCESS,
+    GET_ALBUMS_FAILURE,
     GET_USER_ALBUMS_SUCCESS,
     GET_USER_ALBUMS_FAILURE,
     PROFILE_UPDATE_SUCCESS,
-    PROFILE_UPDATE_FAILURE
+    PROFILE_UPDATE_FAILURE,
+    SET_FILTER,
+    SET_SORT
 } from './actionTypes';
 import axios from 'axios';
 
@@ -64,26 +70,50 @@ export const postLogout = () => ({
     payload: 'logout'
 });
 
-export const getUserAlbumsSuccess = (payload) => ({
-    type: GET_USER_ALBUMS_SUCCESS,
+export const getAlbumsSuccess = (payload) => ({
+    type: GET_ALBUMS_SUCCESS,
     payload
 });
+
+export const getAlbumsFailure = (payload) => ({
+    type: GET_ALBUMS_FAILURE,
+    payload
+});
+
+export const getAlbums = (page = 1) => {
+    return (dispatch) => {
+        return axios({
+            method: 'GET',
+            url: `http://localhost:5000/api/albums?page=${page}`
+        })
+            .then((res) => dispatch(getAlbumsSuccess(res.data)))
+            .catch((error) => dispatch(getAlbumsFailure(error.response.data)));
+    };
+};
+
+export const getUserAlbumsSuccess = (payload) => {
+    console.log(payload);
+    return {
+        type: GET_USER_ALBUMS_SUCCESS,
+        payload
+    };
+};
 
 export const getUserAlbumsFailure = (payload) => ({
     type: GET_USER_ALBUMS_FAILURE,
     payload
 });
 
-export const getUserAlbums = (authToken, email) => {
+export const getUserAlbums = (authToken, email, page = 1) => {
     return (dispatch) => {
         return axios({
             method: 'GET',
-            url: `http://localhost:5000/api/user/albums?email=${email}`,
+            url: `http://localhost:5000/api/user/albums?email=${email}&page=${page}`,
             headers: { Authorization: `Bearer ${authToken}` }
         })
             .then((res) => dispatch(getUserAlbumsSuccess(res.data)))
             .catch((error) =>
-                dispatch(getUserAlbumsSuccess(error.response.data))
+                dispatch(getUserAlbumsFailure(error.response.data))
             );
     };
 };
@@ -114,4 +144,39 @@ export const updateProfile = (authToken, data) => {
                 dispatch(updateProfileFailure(error.response.data))
             );
     };
+};
+
+export const addAlbumSuccess = (payload) => ({
+    type: ADD_ALBUM_SUCCESS,
+    payload
+});
+
+export const addAlbumFailure = (payload) => ({
+    type: ADD_ALBUM_FAILURE,
+    payload
+});
+
+export const addAlbum = (authToken, data) => {
+    return (dispatch) => {
+        return axios({
+            method: 'POST',
+            url: 'http://localhost:5000/api/addalbum',
+            headers: {
+                Authorization: `Bearer ${authToken}`,
+                'Content-Type': 'application/json'
+            },
+            data
+        })
+            .then((res) => dispatch(addAlbumSuccess(res.data)))
+            .catch((error) => dispatch(addAlbumFailure(error.response.data)));
+    };
+};
+
+export const setFilter = (payload) => ({
+    type: SET_FILTER,
+    payload
+});
+
+export const setSort = (payload) => {
+    return { type: SET_SORT, payload };
 };
