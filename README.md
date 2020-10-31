@@ -1,5 +1,13 @@
 # music-records
 
+This is a full-stack project created using React, Node.js, Express, MongoDB and Material UI with some custom CSS. 
+## Features
+1. Users can view music album information from various artists without loging in.
+2. Artists can sign up and add their album information for others to view.
+3. In the homepage users can sort and filter albums based on genre and year of release and 6 albums are displayed per page.
+4. The website is responsive and is useable in all screen sizes.
+5. MongoDB is used to maintain one database with two collections, one for user details and another for album details.
+
 ## Setup
 
 1. Clone the repository.
