@@ -69,8 +69,6 @@ function reducer(state = initialState, { type, payload }) {
                 userAlbums: [],
                 user_current_page: 1,
                 user_total_count: 1,
-                main_current_page: 1,
-                main_total_count: 1,
                 name: '',
                 email: '',
                 error: '',
